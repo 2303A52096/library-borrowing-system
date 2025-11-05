@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Library System — MVC</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Library Borrowing System (MVC)</h1>
+      <div class="top">
+        <button id="refreshBtn" class="btn">Refresh</button>
+        <button id="openLoginBtn" class="btn ghost">Admin Login</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="studentSection" class="card">
+        <div class="card-head">
+          <h2>Available Books</h2>
+          <div class="muted">Borrow books — stored in your browser</div>
+        </div>
+        <div id="booksGrid" class="book-grid"></div>
+      </section>
+
+      <section id="adminPanel" class="card" style="display:none;">
+        <div class="card-head">
+          <h2>Admin Panel</h2>
+          <button id="logoutBtn" class="btn ghost">Logout</button>
+        </div>
+
+        <div class="form-row">
+          <div class="form-col">
+            <label>Title</label>
+            <input id="titleInput" placeholder="Title">
+          </div>
+          <div class="form-col">
+            <label>Author</label>
+            <input id="authorInput" placeholder="Author">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-col">
+            <label>Category</label>
+            <input id="categoryInput" placeholder="Category">
+          </div>
+          <div class="form-col">
+            <label>Copies</label>
+            <input id="copiesInput" type="number" min="1" value="1">
+          </div>
+        </div>
+
+        <div style="margin-top:10px;">
+          <button id="addBookBtn" class="btn">Add Book</button>
+        </div>
+
+        <div style="margin-top:14px;">
+          <h3>Borrowed Records</h3>
+          <table id="borrowedTable">
+            <thead><tr><th>Book</th><th>Borrower</th><th>Date</th><th>Action</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="muted">Demo — localStorage. Include screenshots & diagrams in report.</footer>
+  </div>
+
+  <!-- Login modal -->
+  <div id="loginModal" class="modal-back" style="display:none;">
+    <div class="modal">
+      <div class="modal-head"><strong>Admin Login</strong></div>
+      <div class="modal-body">
+        <label>Username</label>
+        <input id="loginUser" value="admin">
+        <label>Password</label>
+        <input id="loginPass" type="password" value="admin">
+        <div style="margin-top:10px; display:flex; gap:8px;">
+          <button id="loginBtn" class="btn">Login</button>
+          <button id="cancelLoginBtn" class="btn ghost">Cancel</button>
+        </div>
+        <div class="muted small">Credentials: <strong>admin / admin</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="model.js"></script>
+  <script src="controller.js"></script>
+  <script src="view.js"></script>
+</body>
+</html>
